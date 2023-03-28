@@ -1,5 +1,5 @@
 import { cartActions } from './cart/cart.slice'
-import { userActions } from './user/user.slise'
+import * as userActions from './user/user.actions'
 
 export const rootActions = {
 	...cartActions,
