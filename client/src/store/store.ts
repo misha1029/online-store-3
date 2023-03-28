@@ -1,6 +1,4 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { curryGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware'
-import { getDefaultSettings } from 'http2'
 import {
 	FLUSH,
 	PAUSE,
@@ -15,6 +13,7 @@ import storage from 'redux-persist/lib/storage'
 
 import { carouselReducer } from './carousel/carousel.slice'
 import { cartReducer } from './cart/cart.slice'
+import { userReducer } from './user/user.slise'
 
 const persistConfig = {
 	key: 'online-store-3',
@@ -24,7 +23,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
 	cart: cartReducer,
-	carousel: carouselReducer
+	carousel: carouselReducer,
+	user: userReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

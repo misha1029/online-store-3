@@ -36,7 +36,7 @@ export const AuthService = {
 		return response.data
 	},
 
-	logout() {
+	async logout() {
 		removeTokensStorage()
 	}
 }
