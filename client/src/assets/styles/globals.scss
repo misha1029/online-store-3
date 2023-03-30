@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
 body {
-	@apply text-base text-black;
+	@apply bg-bg-color text-base text-black;
+	font-family: 'Inter', sans-serif;
 }
 
 .disabled {

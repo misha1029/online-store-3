@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
 
 import { errorCatch, getContentType } from './api.helper'
 import {
@@ -8,7 +7,7 @@ import {
 } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
 
-export const API_URL = `${process.env.APP_URL}`
+export const API_URL = `${process.env.SERVER_URL}`
 
 export const instance = axios.create({
 	// создаём для того что бы сделать интерсептор и на req когда запрос идёт к серверу мы добовляем токен
