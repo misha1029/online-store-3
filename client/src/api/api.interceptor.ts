@@ -9,6 +9,11 @@ import { AuthService } from '@/services/auth/auth.service'
 
 export const API_URL = `${process.env.SERVER_URL}`
 
+export const axiosClassic = axios.create({
+	baseURL: API_URL,
+	headers: getContentType()
+})
+
 export const instance = axios.create({
 	// создаём для того что бы сделать интерсептор и на req когда запрос идёт к серверу мы добовляем токен
 	baseURL: API_URL,
@@ -35,7 +40,7 @@ instance.interceptors.response.use(
 		// <=== обробатываем ссынарий ощибки
 		const originalRequest = error.config
 		if (
-			(error.response.status === 401 ||
+			(error?.response?.status === 401 ||
 				errorCatch(error) === 'jwt expired' ||
 				errorCatch(error) === 'jwt must be provider') &&
 			error.config &&

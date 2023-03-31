@@ -6,8 +6,8 @@ import { generateSlug } from 'src/utils/generateSlug'
 import { EnumProductSort, GetAllProductDto } from './dto/get-all-product.dto'
 import { ProductDto } from './dto/product.dto'
 import {
-  productReturnObjectFullest,
-  productrReturnObject
+	productReturnObjectFullest,
+	productrReturnObject
 } from './return-product.object'
 
 @Injectable()
@@ -65,7 +65,8 @@ export class ProductService {
 			where: prismaSearchTermFilter,
 			orderBy: prismaSort,
 			skip,
-			take: perPage
+			take: perPage,
+			select: productrReturnObject
 		})
 		return {
 			products,

@@ -19,5 +19,5 @@ export type TypeDataFilters = {
 	sort?: EnumProductSort
 	serchTerm?: string
 	page?: string | number
-	perpage?: string | number
+	perPage?: string | number
 }
