@@ -8,7 +8,7 @@ import { removeTokensStorage, saveToStorage } from './auth.helper'
 
 export const AuthService = {
 	async getNewToken() {
-		const refreshToken = Cookies.get('refresh-token')
+		const refreshToken = Cookies.get('refreshToken')
 
 		const response = await axiosClassic.post<string, { data: IAuthResponse }>(
 			'/login/access-token',

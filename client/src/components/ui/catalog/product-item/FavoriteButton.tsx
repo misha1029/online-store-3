@@ -9,25 +9,25 @@ import { UserService } from '@/services/user.service'
 const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
 	const { profile } = userProfile()
 
-	if (!profile) return null
-
-	const { invalidateQueries } = useQueryClient()
+	const queryClient = useQueryClient()
 
 	const { mutate } = useMutation(
 		['toggle favorite'],
 		() => UserService.toggleFavorite(productId),
 		{
 			onSuccess() {
-				invalidateQueries(['get profile'])
+				queryClient.invalidateQueries(['get profile'])
 			}
 		}
 	)
+
+	if (!profile) return null
 
 	const isExists = profile.favorites.some(favorite => favorite.id === productId)
 
 	return (
 		<div>
-			<button onClick={() => mutate()}>
+			<button className='text-primary' onClick={() => mutate()}>
 				{isExists ? <AiFillHeart /> : <AiOutlineHeart />}
 			</button>
 		</div>
