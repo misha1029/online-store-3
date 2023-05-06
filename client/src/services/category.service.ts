@@ -21,7 +21,7 @@ export const CategoryService = {
 
 	async getbySlug(slug: string) {
 		return axiosClassic<ICategory>({
-			url: `${CATEGORIES}/${slug}`,
+			url: `${CATEGORIES}/by-slug/${slug}`,
 			method: 'GET'
 		})
 	},

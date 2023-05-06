@@ -15,3 +15,32 @@ body {
 	text-decoration: none;
 	opacity: 0.2 !important;
 }
+
+.font-serif {
+	font-family: 'Playfair Display', serif;
+}
+
+.btn-style {
+	@apply relative border-b border-[rgba(255,255,255,.2)] text-sm uppercase tracking-widest text-white;
+
+	&::after {
+		content: '';
+		@apply absolute left-0 -bottom-0.5 h-[0.1rem] w-0 bg-secondary transition-all duration-[400ms];
+	}
+
+	&:hover::after {
+		@apply w-full;
+	}
+}
+
+.menu {
+	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.open-menu {
+	opacity: 1;
+	transform: scale(1);
+}
+.close-menu {
+	opacity: 0;
+	transform: scale(0);
+}

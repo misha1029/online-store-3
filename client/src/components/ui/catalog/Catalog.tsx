@@ -4,24 +4,16 @@ import { IProduct } from '@/types/product.interface'
 
 import { Heading } from '../Heading/Heading'
 import Loading from '../Loading/Loading'
-import Button from '../button/Button'
 
-import SortDropdown from './SortDropdown/SortDropdown'
 import ProductItem from './product-item/ProductItem'
 
 interface ICatalog {
 	products: IProduct[]
 	isLoader?: boolean
 	title?: string
-	isPagination: boolean
 }
 
-const Catalog: FC<ICatalog> = ({
-	products,
-	isLoader,
-	title,
-	isPagination = false
-}) => {
+const Catalog: FC<ICatalog> = ({ products, isLoader, title }) => {
 	if (isLoader) return <Loading />
 
 	return (
